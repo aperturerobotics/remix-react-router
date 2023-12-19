@@ -257,6 +257,91 @@ function useNavigateUnstable(): NavigateFunction {
   return navigate;
 }
 
+/**
+ * Returns an imperative method for changing the location which joins the to pathname with the current path.
+ *
+ * Accepts either an absolute or relative path.
+ * It is possible to navigate to paths without registered Routes using this function.
+ */
+export function useNavigatePath(): NavigateFunction {
+  invariant(
+    useInRouterContext(),
+    // TODO: This error is probably because they somehow have 2 versions of the
+    // router loaded. We can help them understand how to avoid that.
+    `useNavigate() may be used only in the context of a <Router> component.`,
+  );
+
+  let dataRouterContext = React.useContext(DataRouterContext);
+  let { basename, navigator } = React.useContext(NavigationContext);
+  let { pathname: locationPathname } = useLocation();
+
+  let activeRef = React.useRef(false);
+  useIsomorphicLayoutEffect(() => {
+    activeRef.current = true;
+  });
+
+  let navigate: NavigateFunction = React.useCallback(
+    (to: To | number, options: NavigateOptions = {}) => {
+      warning(activeRef.current, navigateEffectWarning);
+
+      // Short circuit here since if this happens on first render the navigate
+      // is useless because we haven't wired up our history listener yet
+      if (!activeRef.current) return;
+
+      if (typeof to === "number") {
+        navigator.go(to);
+        return;
+      }
+
+      // If we're operating within a basename, prepend it to the pathname prior
+      // to handing off to history (but only if we're not in a data router,
+      // otherwise it'll prepend the basename inside of the router).
+      // If this is a root navigation, then we navigate to the raw basename
+      // which allows the basename to have full control over the presence of a
+      // trailing slash on root links
+      const hasBaseName =
+        dataRouterContext == null && basename !== "/" && !!basename.length;
+      // TODO: check this
+      const fromPath = hasBaseName
+        ? locationPathname.substring(basename.length)
+        : locationPathname;
+
+      const toPath = typeof to === "string" ? parsePath(to) : { ...to };
+      const toPathName = toPath.pathname;
+      if (!toPathName) {
+        return;
+      }
+
+      const toPathAbs = toPathName.startsWith("/");
+      if (!toPathAbs) {
+        toPath.pathname = joinPaths([fromPath, toPathName]);
+      }
+
+      const path: Path = {
+        pathname: toPath.pathname || "/",
+        hash: toPath.hash ?? "",
+        search: toPath.search ?? "",
+      };
+
+      if (hasBaseName) {
+        path.pathname =
+          path.pathname === "/"
+            ? basename
+            : joinPaths([basename, path.pathname]);
+      }
+
+      (!!options.replace ? navigator.replace : navigator.push)(
+        path,
+        options.state,
+        options,
+      );
+    },
+    [basename, navigator, locationPathname, dataRouterContext],
+  );
+
+  return navigate;
+}
+
 const OutletContext = React.createContext<unknown>(null);
 
 /**
