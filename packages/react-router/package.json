@@ -1,6 +1,6 @@
 {
   "name": "@aptre/remix-react-router",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Declarative routing for React",
   "keywords": [
     "react",
@@ -40,7 +40,7 @@
   "scripts": {
     "build": "npm run build:lib && npm run build:types",
     "build:min": "npm run build:lib:min && npm run build:types",
-    "build:lib": "rimraf ./dist && esbuild --bundle --external:react --external:react-dom --format=esm --target=es2022 --platform=browser --outfile=./dist/index.mjs ./index.ts",
+    "build:lib": "rimraf ./dist && esbuild --bundle --external:react --external:react-dom --format=esm --define:__DEV__=false --tree-shaking=true --target=es2022 --platform=browser --outfile=./dist/index.mjs ./index.ts",
     "build:lib:min": "npm run build:lib -- --minify",
     "build:types": "tsc --emitDeclarationOnly --declaration --outDir dist/"
   }
