@@ -9,7 +9,7 @@ module.exports = {
   },
   setupFiles: ["./__tests__/setup.ts"],
   moduleNameMapper: {
-    "^@remix-run/router$": "<rootDir>/../router/index.ts",
+    "^@remix-run/router$": require.resolve("@remix-run/router"),
     "^@remix-run/web-blob$": require.resolve("@remix-run/web-blob"),
     "^@remix-run/web-fetch$": require.resolve("@remix-run/web-fetch"),
     "^@remix-run/web-form-data$": require.resolve("@remix-run/web-form-data"),
