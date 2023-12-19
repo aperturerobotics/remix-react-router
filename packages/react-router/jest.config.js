@@ -15,7 +15,7 @@ module.exports = {
     "^@remix-run/web-form-data$": require.resolve("@remix-run/web-form-data"),
     "^@remix-run/web-stream$": require.resolve("@remix-run/web-stream"),
     "^@web3-storage/multipart-parser$": require.resolve(
-      "@web3-storage/multipart-parser"
+      "@web3-storage/multipart-parser",
     ),
     "^react-router$": "<rootDir>/index.ts",
   },

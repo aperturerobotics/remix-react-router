@@ -25,7 +25,7 @@ describe("<Navigate>", () => {
               <Route path="home" element={<Navigate to="/about" />} />
               <Route path="about" element={<h1>About</h1>} />
             </Routes>
-          </MemoryRouter>
+          </MemoryRouter>,
         );
       });
 
@@ -48,7 +48,7 @@ describe("<Navigate>", () => {
               <Route path="home" element={<Navigate to="../about" />} />
               <Route path="about" element={<h1>About</h1>} />
             </Routes>
-          </MemoryRouter>
+          </MemoryRouter>,
         );
       });
 
@@ -71,7 +71,7 @@ describe("<Navigate>", () => {
               </Route>
               <Route path="about" element={<h1>About</h1>} />
             </Routes>
-          </MemoryRouter>
+          </MemoryRouter>,
         );
       });
 
@@ -94,7 +94,7 @@ describe("<Navigate>", () => {
               </Route>
               <Route path="about" element={<h1>About</h1>} />
             </Routes>
-          </MemoryRouter>
+          </MemoryRouter>,
         );
       });
 
@@ -123,7 +123,7 @@ describe("<Navigate>", () => {
               </Route>
               <Route path="about" element={<h1>About</h1>} />
             </Routes>
-          </MemoryRouter>
+          </MemoryRouter>,
         );
       });
 
@@ -155,7 +155,7 @@ describe("<Navigate>", () => {
               </Route>
               <Route path="about" element={<h1>About</h1>} />
             </Routes>
-          </MemoryRouter>
+          </MemoryRouter>,
         );
       });
 
@@ -200,7 +200,7 @@ describe("<Navigate>", () => {
               </Route>
               <Route path="about" element={<h1>About</h1>} />
             </Routes>
-          </MemoryRouter>
+          </MemoryRouter>,
         );
       });
 
@@ -226,7 +226,7 @@ describe("<Navigate>", () => {
                 </Route>
               </Route>
             </Routes>
-          </MemoryRouter>
+          </MemoryRouter>,
         );
       });
 
@@ -252,7 +252,7 @@ describe("<Navigate>", () => {
                 element={<Navigate to=".." relative="path" />}
               />
             </Routes>
-          </MemoryRouter>
+          </MemoryRouter>,
         );
       });
 
@@ -275,7 +275,7 @@ describe("<Navigate>", () => {
                 <Route index element={<Navigate to=".." relative="path" />} />
               </Route>
             </Routes>
-          </MemoryRouter>
+          </MemoryRouter>,
         );
       });
 
@@ -301,7 +301,7 @@ describe("<Navigate>", () => {
                 />
               </Route>
             </Routes>
-          </MemoryRouter>
+          </MemoryRouter>,
         );
       });
 
@@ -333,7 +333,7 @@ describe("<Navigate>", () => {
                 </Route>
               </Route>
             </Routes>
-          </MemoryRouter>
+          </MemoryRouter>,
         );
       });
 
@@ -365,7 +365,7 @@ describe("<Navigate>", () => {
                 </Route>
               </Route>
             </Routes>
-          </MemoryRouter>
+          </MemoryRouter>,
         );
       });
 
@@ -394,7 +394,7 @@ describe("<Navigate>", () => {
                 </Route>
               </Route>
             </Routes>
-          </MemoryRouter>
+          </MemoryRouter>,
         );
       });
 
@@ -418,7 +418,7 @@ describe("<Navigate>", () => {
                 element={<Navigate to="..?foo=bar#hash" relative="path" />}
               />
             </Routes>
-          </MemoryRouter>
+          </MemoryRouter>,
         );
       });
 
@@ -468,13 +468,13 @@ describe("<Navigate>", () => {
       ],
       {
         initialEntries: ["/home"],
-      }
+      },
     );
 
     let { container } = render(
       <React.StrictMode>
         <RouterProvider router={router} />
-      </React.StrictMode>
+      </React.StrictMode>,
     );
 
     await waitFor(() => screen.getByText("About"));
@@ -510,7 +510,7 @@ describe("<Navigate>", () => {
     let { container } = render(
       <React.StrictMode>
         <RouterProvider router={router} />
-      </React.StrictMode>
+      </React.StrictMode>,
     );
 
     await waitFor(() => screen.getByText("Page B"));
@@ -547,13 +547,13 @@ describe("<Navigate>", () => {
           ],
         },
       ],
-      { initialEntries: ["/a"] }
+      { initialEntries: ["/a"] },
     );
 
     let { container } = render(
       <React.StrictMode>
         <RouterProvider router={router} />
-      </React.StrictMode>
+      </React.StrictMode>,
     );
 
     await waitFor(() => screen.getByText("Page B"));
@@ -608,7 +608,7 @@ describe("concurrent mode", () => {
       let { container } = render(
         <React.StrictMode>
           <RouterProvider router={router} />
-        </React.StrictMode>
+        </React.StrictMode>,
       );
 
       await waitFor(() => screen.getByText("Page B"));
@@ -675,7 +675,7 @@ describe("concurrent mode", () => {
       let { container } = render(
         <React.StrictMode>
           <RouterProvider router={router} />
-        </React.StrictMode>
+        </React.StrictMode>,
       );
 
       await waitFor(() => screen.getByText("Page B"));
@@ -744,7 +744,7 @@ describe("concurrent mode", () => {
       let { container } = render(
         <React.StrictMode>
           <RouterProvider router={router} />
-        </React.StrictMode>
+        </React.StrictMode>,
       );
 
       await waitFor(() => screen.getByText("Page B"));
@@ -819,7 +819,7 @@ describe("concurrent mode", () => {
       let { container } = render(
         <React.StrictMode>
           <RouterProvider router={router} />
-        </React.StrictMode>
+        </React.StrictMode>,
       );
 
       await waitFor(() => screen.getByText("Page B"));
@@ -896,7 +896,7 @@ describe("concurrent mode", () => {
             router={router}
             future={{ v7_startTransition: true }}
           />
-        </React.StrictMode>
+        </React.StrictMode>,
       );
 
       await waitFor(() => screen.getByText("Page B"));
@@ -966,7 +966,7 @@ describe("concurrent mode", () => {
             router={router}
             future={{ v7_startTransition: true }}
           />
-        </React.StrictMode>
+        </React.StrictMode>,
       );
 
       await waitFor(() => screen.getByText("Page B"));
@@ -1042,7 +1042,7 @@ describe("concurrent mode", () => {
             router={router}
             future={{ v7_startTransition: true }}
           />
-        </React.StrictMode>
+        </React.StrictMode>,
       );
 
       await waitFor(() => screen.getByText("Page B"));
@@ -1120,7 +1120,7 @@ describe("concurrent mode", () => {
             router={router}
             future={{ v7_startTransition: true }}
           />
-        </React.StrictMode>
+        </React.StrictMode>,
       );
 
       await waitFor(() => screen.getByText("Page B"));

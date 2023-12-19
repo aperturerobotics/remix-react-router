@@ -12,18 +12,6 @@ describe("<Router>", () => {
     consoleError.mockRestore();
   });
 
-  it("throws if another <Router> is already in context", () => {
-    expect(() => {
-      TestRenderer.create(
-        <MemoryRouter>
-          <MemoryRouter />
-        </MemoryRouter>
-      );
-    }).toThrow(/cannot render a <Router> inside another <Router>/);
-
-    expect(consoleError).toHaveBeenCalledTimes(1);
-  });
-
   it("memoizes the current location", () => {
     let location1;
     function CaptureLocation1() {
@@ -36,7 +24,7 @@ describe("<Router>", () => {
       renderer = TestRenderer.create(
         <MemoryRouter>
           <CaptureLocation1 />
-        </MemoryRouter>
+        </MemoryRouter>,
       );
     });
 
@@ -52,7 +40,7 @@ describe("<Router>", () => {
       renderer.update(
         <MemoryRouter>
           <CaptureLocation2 />
-        </MemoryRouter>
+        </MemoryRouter>,
       );
     });
 

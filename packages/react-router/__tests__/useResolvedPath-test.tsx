@@ -26,7 +26,7 @@ describe("useResolvedPath", () => {
               element={<ShowResolvedPath path="/home?user=mj#welcome" />}
             />
           </Routes>
-        </MemoryRouter>
+        </MemoryRouter>,
       );
     });
 
@@ -56,7 +56,7 @@ describe("useResolvedPath", () => {
               }
             />
           </Routes>
-        </MemoryRouter>
+        </MemoryRouter>,
       );
     });
 
@@ -79,7 +79,7 @@ describe("useResolvedPath", () => {
                 element={<ShowResolvedPath path="/home#welcome?user=mj" />}
               />
             </Routes>
-          </MemoryRouter>
+          </MemoryRouter>,
         );
       });
 
@@ -105,7 +105,7 @@ describe("useResolvedPath", () => {
                 <Route path="*" element={<ShowResolvedPath path="." />} />
               </Route>
             </Routes>
-          </MemoryRouter>
+          </MemoryRouter>,
         );
       });
 
@@ -126,7 +126,7 @@ describe("useResolvedPath", () => {
                 <Route path="*" element={<ShowResolvedPath path="." />} />
               </Route>
             </Routes>
-          </MemoryRouter>
+          </MemoryRouter>,
         );
       });
 
@@ -152,7 +152,7 @@ describe("useResolvedPath", () => {
                 }
               />
             </Routes>
-          </MemoryRouter>
+          </MemoryRouter>,
         );
       });
 
@@ -178,7 +178,7 @@ describe("useResolvedPath", () => {
                 }
               />
             </Routes>
-          </MemoryRouter>
+          </MemoryRouter>,
         );
       });
 
@@ -201,7 +201,7 @@ describe("useResolvedPath", () => {
                 <Route path=":name" element={<ShowResolvedPath path="." />} />
               </Route>
             </Routes>
-          </MemoryRouter>
+          </MemoryRouter>,
         );
       });
 
@@ -222,7 +222,7 @@ describe("useResolvedPath", () => {
                 <Route path=":name" element={<ShowResolvedPath path=".." />} />
               </Route>
             </Routes>
-          </MemoryRouter>
+          </MemoryRouter>,
         );
       });
 

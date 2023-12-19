@@ -12,8 +12,8 @@ describe("creating routes from JSX", () => {
             <Route index element={<h1>users index</h1>} />
             <Route path=":id" element={<h1>user profile</h1>} />
           </Route>
-        </Route>
-      )
+        </Route>,
+      ),
     ).toMatchInlineSnapshot(`
       [
         {
@@ -146,8 +146,8 @@ describe("creating routes from JSX", () => {
               element={<h1>users index</h1>}
             />
           </Route>
-        </Route>
-      )
+        </Route>,
+      ),
     ).toMatchInlineSnapshot(`
       [
         {
@@ -236,7 +236,7 @@ describe("creating routes from JSX", () => {
           <Route index>
             <Route path="users" />
           </Route>
-        </Route>
+        </Route>,
       );
     }).toThrow("An index route cannot have child routes.");
   });
@@ -255,8 +255,8 @@ describe("creating routes from JSX", () => {
             </Route>
             <Route path="b" />
           </>
-        </Route>
-      )
+        </Route>,
+      ),
     ).toEqual([
       {
         id: "0",
