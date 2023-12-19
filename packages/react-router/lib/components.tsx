@@ -45,6 +45,7 @@ import {
   useInRouterContext,
   useLocation,
   useNavigate,
+  useNavigatePath,
   useOutlet,
   useRoutes,
   useRoutesImpl,
@@ -106,7 +107,7 @@ export function RouterProvider({
         setStateImpl(newState);
       }
     },
-    [setStateImpl, v7_startTransition]
+    [setStateImpl, v7_startTransition],
   );
 
   // Need to use a layout effect here so we are subscribed early enough to
@@ -117,7 +118,7 @@ export function RouterProvider({
     warning(
       fallbackElement == null || !router.future.v7_partialHydration,
       "`<RouterProvider fallbackElement>` is deprecated when using " +
-        "`v7_partialHydration`, use a `HydrateFallback` component instead"
+        "`v7_partialHydration`, use a `HydrateFallback` component instead",
     );
     // Only log this once on initial mount
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -151,7 +152,7 @@ export function RouterProvider({
       static: false,
       basename,
     }),
-    [router, navigator, basename]
+    [router, navigator, basename],
   );
 
   // The fragment and {null} here are important!  We need them to keep React 18's
@@ -243,7 +244,7 @@ export function MemoryRouter({
         ? startTransitionImpl(() => setStateImpl(newState))
         : setStateImpl(newState);
     },
-    [setStateImpl, v7_startTransition]
+    [setStateImpl, v7_startTransition],
   );
 
   React.useLayoutEffect(() => history.listen(setState), [history, setState]);
@@ -286,7 +287,7 @@ export function Navigate({
     useInRouterContext(),
     // TODO: This error is probably because they somehow have 2 versions of
     // the router loaded. We can help them understand how to avoid that.
-    `<Navigate> may be used only in the context of a <Router> component.`
+    `<Navigate> may be used only in the context of a <Router> component.`,
   );
 
   let { future, static: isStatic } = React.useContext(NavigationContext);
@@ -295,7 +296,7 @@ export function Navigate({
     !isStatic,
     `<Navigate> must not be used on the initial render in a <StaticRouter>. ` +
       `This is a no-op, but you should modify your code so the <Navigate> is ` +
-      `only ever rendered in response to some user interaction or state change.`
+      `only ever rendered in response to some user interaction or state change.`,
   );
 
   let { matches } = React.useContext(RouteContext);
@@ -308,13 +309,66 @@ export function Navigate({
     to,
     getResolveToMatches(matches, future.v7_relativeSplatPath),
     locationPathname,
-    relative === "path"
+    relative === "path",
   );
   let jsonPath = JSON.stringify(path);
 
   React.useEffect(
     () => navigate(JSON.parse(jsonPath), { replace, state, relative }),
-    [navigate, jsonPath, relative, replace, state]
+    [navigate, jsonPath, relative, replace, state],
+  );
+
+  return null;
+}
+
+export interface NavigatePathProps extends NavigateProps {}
+
+/**
+ * Changes the current location with a path.
+ *
+ * Note: This API is mostly useful in React.Component subclasses that are not
+ * able to use hooks. In functional components, we recommend you use the
+ * `useNavigatePath` hook instead.
+ */
+export function NavigatePath({
+  to,
+  replace,
+  state,
+  relative,
+}: NavigatePathProps): null {
+  invariant(
+    useInRouterContext(),
+    // TODO: This error is probably because they somehow have 2 versions of
+    // the router loaded. We can help them understand how to avoid that.
+    `<Navigate> may be used only in the context of a <Router> component.`,
+  );
+
+  let { future, static: isStatic } = React.useContext(NavigationContext);
+
+  warning(
+    !isStatic,
+    `<Navigate> must not be used on the initial render in a <StaticRouter>. ` +
+      `This is a no-op, but you should modify your code so the <Navigate> is ` +
+      `only ever rendered in response to some user interaction or state change.`,
+  );
+
+  let { matches } = React.useContext(RouteContext);
+  let { pathname: locationPathname } = useLocation();
+  let navigate = useNavigatePath();
+
+  // Resolve the path outside of the effect so that when effects run twice in
+  // StrictMode they navigate to the same place
+  let path = resolveTo(
+    to,
+    getResolveToMatches(matches, future.v7_relativeSplatPath),
+    locationPathname,
+    relative === "path",
+  );
+  let jsonPath = JSON.stringify(path);
+
+  React.useEffect(
+    () => navigate(JSON.parse(jsonPath), { replace, state, relative }),
+    [navigate, jsonPath, relative, replace, state],
   );
 
   return null;
@@ -386,7 +440,7 @@ export function Route(_props: RouteProps): React.ReactElement | null {
   invariant(
     false,
     `A <Route> is only ever to be used as the child of <Routes> element, ` +
-      `never rendered directly. Please wrap your <Route> in a <Routes>.`
+      `never rendered directly. Please wrap your <Route> in a <Routes>.`,
   );
 }
 
@@ -431,7 +485,7 @@ export function Router({
         ...future,
       },
     }),
-    [basename, future, navigator, staticProp]
+    [basename, future, navigator, staticProp],
   );
 
   if (typeof locationProp === "string") {
@@ -469,7 +523,7 @@ export function Router({
     locationContext != null,
     `<Router basename="${basename}"> is not able to match the URL ` +
       `"${pathname}${search}${hash}" because it does not start with the ` +
-      `basename, so the <Router> won't render anything.`
+      `basename, so the <Router> won't render anything.`,
   );
 
   if (locationContext == null) {
@@ -557,7 +611,7 @@ class AwaitErrorBoundary extends React.Component<
     console.error(
       "<Await> caught the following error during render",
       error,
-      errorInfo
+      errorInfo,
     );
   }
 
@@ -587,8 +641,8 @@ class AwaitErrorBoundary extends React.Component<
         promise._error !== undefined
           ? AwaitRenderStatus.error
           : promise._data !== undefined
-          ? AwaitRenderStatus.success
-          : AwaitRenderStatus.pending;
+            ? AwaitRenderStatus.success
+            : AwaitRenderStatus.pending;
     } else {
       // Raw (untracked) promise - track it
       status = AwaitRenderStatus.pending;
@@ -597,7 +651,7 @@ class AwaitErrorBoundary extends React.Component<
         (data: any) =>
           Object.defineProperty(resolve, "_data", { get: () => data }),
         (error: any) =>
-          Object.defineProperty(resolve, "_error", { get: () => error })
+          Object.defineProperty(resolve, "_error", { get: () => error }),
       );
     }
 
@@ -656,7 +710,7 @@ function ResolveAwait({
  */
 export function createRoutesFromChildren(
   children: React.ReactNode,
-  parentPath: number[] = []
+  parentPath: number[] = [],
 ): RouteObject[] {
   let routes: RouteObject[] = [];
 
@@ -673,7 +727,7 @@ export function createRoutesFromChildren(
       // Transparently support React.Fragment and its children.
       routes.push.apply(
         routes,
-        createRoutesFromChildren(element.props.children, treePath)
+        createRoutesFromChildren(element.props.children, treePath),
       );
       return;
     }
@@ -682,12 +736,12 @@ export function createRoutesFromChildren(
       element.type === Route,
       `[${
         typeof element.type === "string" ? element.type : element.type.name
-      }] is not a <Route> component. All component children of <Routes> must be a <Route> or <React.Fragment>`
+      }] is not a <Route> component. All component children of <Routes> must be a <Route> or <React.Fragment>`,
     );
 
     invariant(
       !element.props.index || !element.props.children,
-      "An index route cannot have child routes."
+      "An index route cannot have child routes.",
     );
 
     let route: RouteObject = {
@@ -712,7 +766,7 @@ export function createRoutesFromChildren(
     if (element.props.children) {
       route.children = createRoutesFromChildren(
         element.props.children,
-        treePath
+        treePath,
       );
     }
 
@@ -726,7 +780,7 @@ export function createRoutesFromChildren(
  * Renders the result of `matchRoutes()` into a React element.
  */
 export function renderMatches(
-  matches: RouteMatch[] | null
+  matches: RouteMatch[] | null,
 ): React.ReactElement | null {
   return _renderMatches(matches);
 }
