@@ -10,7 +10,7 @@ import {
   Routes,
   createBrowserRouter,
   createHashRouter,
-} from "react-router-dom";
+} from "@aptre/remix-react-router-dom";
 import * as TestRenderer from "react-test-renderer";
 
 describe("<Link> href", () => {

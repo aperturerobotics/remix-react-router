@@ -1,4 +1,4 @@
-import { matchRoutes } from "react-router";
+import { matchRoutes } from "@aptre/remix-react-router";
 
 describe("index route matching", () => {
   it("throws when the index route has children", () => {
@@ -18,10 +18,10 @@ describe("index route matching", () => {
             ],
           },
         ],
-        "/users/mj"
+        "/users/mj",
       );
     }).toThrowErrorMatchingInlineSnapshot(
-      `"Index routes must not have child routes. Please remove all child routes from route path "/users/"."`
+      `"Index routes must not have child routes. Please remove all child routes from route path "/users/"."`,
     );
   });
 });

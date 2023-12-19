@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as TestRenderer from "react-test-renderer";
-import { MemoryRouter, Outlet, Routes, Route } from "react-router";
+import { MemoryRouter, Outlet, Routes, Route } from "@aptre/remix-react-router";
 
 describe("nested routes with no path", () => {
   it("matches them depth-first", () => {
@@ -15,7 +15,7 @@ describe("nested routes with no path", () => {
               </Route>
             </Route>
           </Routes>
-        </MemoryRouter>
+        </MemoryRouter>,
       );
     });
 
@@ -66,7 +66,7 @@ describe("nested /", () => {
               </Route>
             </Route>
           </Routes>
-        </MemoryRouter>
+        </MemoryRouter>,
       );
     });
 
@@ -114,7 +114,7 @@ describe("routes with identical paths", () => {
             <Route path="/home" element={<First />} />
             <Route path="/home" element={<Second />} />
           </Routes>
-        </MemoryRouter>
+        </MemoryRouter>,
       );
     });
 

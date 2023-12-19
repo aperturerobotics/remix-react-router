@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as TestRenderer from "react-test-renderer";
-import { Link } from "react-router-dom";
+import { Link } from "@aptre/remix-react-router-dom";
 import { StaticRouter } from "react-router-dom/server";
 
 describe("A <Link> in a <StaticRouter>", () => {

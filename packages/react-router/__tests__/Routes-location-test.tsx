@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as TestRenderer from "react-test-renderer";
-import { MemoryRouter, Route, Routes, useParams } from "react-router";
+import { MemoryRouter, Route, Routes, useParams } from "@aptre/remix-react-router";
 
 describe("<Routes> with a location", () => {
   function Home() {
@@ -33,7 +33,7 @@ describe("<Routes> with a location", () => {
             <Route path="home" element={<Home />} />
             <Route path="users/:userId" element={<User />} />
           </Routes>
-        </MemoryRouter>
+        </MemoryRouter>,
       );
     });
 
@@ -53,7 +53,7 @@ describe("<Routes> with a location", () => {
             <Route path="home" element={<Home />} />
             <Route path="users/:userId" element={<User />} />
           </Routes>
-        </MemoryRouter>
+        </MemoryRouter>,
       );
     });
 

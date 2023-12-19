@@ -1,6 +1,6 @@
 {
-  "name": "react-router-dom",
-  "version": "6.21.0",
+  "name": "@aptre/remix-react-router-dom",
+  "version": "1.1.0",
   "description": "Declarative routing for React web applications",
   "keywords": [
     "react",
@@ -12,21 +12,21 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/remix-run/react-router",
+    "url": "git+https://github.com/aperturerobotics/remix-react-router.git",
     "directory": "packages/react-router-dom"
   },
   "license": "MIT",
   "author": "Remix Software <hello@remix.run>",
   "sideEffects": false,
-  "main": "./dist/main.js",
-  "unpkg": "./dist/umd/react-router-dom.production.min.js",
-  "module": "./dist/index.js",
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "dependencies": {
-    "@remix-run/router": "1.14.0",
-    "react-router": "6.21.0"
+    "@aptre/remix-react-router": "1.1.0",
+    "@remix-run/router": "1.14.0"
   },
   "devDependencies": {
+    "esbuild": "^0.19.10",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
@@ -36,14 +36,18 @@
   },
   "files": [
     "dist/",
-    "CHANGELOG.md",
     "LICENSE.md",
     "README.md",
     "server.d.ts",
     "server.js",
     "server.mjs"
   ],
-  "engines": {
-    "node": ">=14.0.0"
+  "scripts": {
+    "build": "npm run build:lib && npm run build:types",
+    "build:lib": "npm run build:lib:client && npm run build:lib:server",
+    "build:lib:client": "rimraf ./dist && npm run build:esbuild -- --platform=browser --outfile=./dist/index.mjs ./index.tsx",
+    "build:lib:server": "rimraf ./dist && npm run build:esbuild -- --platform=node --outfile=./dist/server.mjs ./server.tsx",
+    "build:esbuild": "esbuild --bundle --external:react --external:react-dom --format=esm --define:__DEV__=false --tree-shaking=true --target=es2022",
+    "build:types": "tsc --emitDeclarationOnly --declaration --outDir dist/"
   }
 }

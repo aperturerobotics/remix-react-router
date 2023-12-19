@@ -13,7 +13,7 @@ import {
   Outlet,
   createBrowserRouter,
   createRoutesFromElements,
-} from "react-router-dom";
+} from "@aptre/remix-react-router-dom";
 
 describe("NavLink", () => {
   describe("when it does not match", () => {

@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as ReactDOMServer from "react-dom/server";
-import { Navigate, Routes, Route } from "react-router-dom";
+import { Navigate, Routes, Route } from "@aptre/remix-react-router-dom";
 import { StaticRouter } from "react-router-dom/server";
 
 describe("A <Navigate> in a <StaticRouter>", () => {

@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as TestRenderer from "react-test-renderer";
-import { MemoryRouter, Routes, Route, Outlet } from "react-router";
+import { MemoryRouter, Routes, Route, Outlet } from "@aptre/remix-react-router";
 
 describe("A layout route", () => {
   it("does not match when none of its children do", () => {
@@ -21,7 +21,7 @@ describe("A layout route", () => {
             </Route>
             <Route index element={<h1>Index</h1>} />
           </Routes>
-        </MemoryRouter>
+        </MemoryRouter>,
       );
     });
 
@@ -56,7 +56,7 @@ describe("A layout route", () => {
               />
             </Route>
           </Routes>
-        </MemoryRouter>
+        </MemoryRouter>,
       );
     });
 
@@ -98,7 +98,7 @@ describe("A layout route", () => {
                 />
               </Route>
             </Routes>
-          </MemoryRouter>
+          </MemoryRouter>,
         );
       });
 
@@ -139,7 +139,7 @@ describe("A layout route", () => {
                 />
               </Route>
             </Routes>
-          </MemoryRouter>
+          </MemoryRouter>,
         );
       });
 
@@ -180,7 +180,7 @@ describe("A layout route", () => {
                 />
               </Route>
             </Routes>
-          </MemoryRouter>
+          </MemoryRouter>,
         );
       });
 
@@ -221,7 +221,7 @@ describe("A layout route", () => {
                 />
               </Route>
             </Routes>
-          </MemoryRouter>
+          </MemoryRouter>,
         );
       });
 
@@ -262,7 +262,7 @@ describe("A layout route", () => {
                 />
               </Route>
             </Routes>
-          </MemoryRouter>
+          </MemoryRouter>,
         );
       });
 

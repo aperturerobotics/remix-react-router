@@ -1,5 +1,5 @@
-import * as ReactRouter from "react-router";
-import * as ReactRouterDOM from "react-router-dom";
+import * as ReactRouter from "@aptre/remix-react-router";
+import * as ReactRouterDOM from "@aptre/remix-react-router-dom";
 
 let nonReExportedKeys = new Set([
   "UNSAFE_mapRouteProperties",

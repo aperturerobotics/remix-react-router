@@ -12,7 +12,7 @@ import {
   useLoaderData,
   useLocation,
   useMatches,
-} from "react-router-dom";
+} from "@aptre/remix-react-router-dom";
 import type { StaticHandlerContext } from "react-router-dom/server";
 import {
   createStaticHandler,

@@ -1,4 +1,4 @@
-import { resolvePath } from "react-router";
+import { resolvePath } from "@aptre/remix-react-router";
 
 describe("resolvePath", () => {
   it('resolves absolute paths irrespective of the "from" pathname', () => {
@@ -40,7 +40,7 @@ describe("resolvePath", () => {
 
   it("normalizes search and hash values", () => {
     expect(
-      resolvePath({ pathname: "/search", search: "q=react", hash: "results" })
+      resolvePath({ pathname: "/search", search: "q=react", hash: "results" }),
     ).toEqual({
       pathname: "/search",
       search: "?q=react",

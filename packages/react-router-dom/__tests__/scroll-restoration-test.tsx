@@ -8,7 +8,7 @@ import {
   RouterProvider,
   ScrollRestoration,
   createBrowserRouter,
-} from "react-router-dom";
+} from "@aptre/remix-react-router-dom";
 
 import getHtml from "../../react-router/__tests__/utils/getHtml";
 

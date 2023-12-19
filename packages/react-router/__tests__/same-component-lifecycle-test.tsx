@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as TestRenderer from "react-test-renderer";
-import { MemoryRouter, Routes, Route } from "react-router";
+import { MemoryRouter, Routes, Route } from "@aptre/remix-react-router";
 
 describe("when the same component is mounted by two different routes", () => {
   it("mounts only once", () => {
@@ -23,7 +23,7 @@ describe("when the same component is mounted by two different routes", () => {
             <Route path="home" element={<Home />} />
             <Route path="another-home" element={<Home />} />
           </Routes>
-        </MemoryRouter>
+        </MemoryRouter>,
       );
     });
 
@@ -42,7 +42,7 @@ describe("when the same component is mounted by two different routes", () => {
             <Route path="home" element={<Home />} />
             <Route path="another-home" element={<Home />} />
           </Routes>
-        </MemoryRouter>
+        </MemoryRouter>,
       );
     });
 

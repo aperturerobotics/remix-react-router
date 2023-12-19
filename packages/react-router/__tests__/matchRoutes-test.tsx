@@ -1,11 +1,11 @@
 import * as React from "react";
-import type { RouteObject } from "react-router";
-import { matchRoutes } from "react-router";
+import type { RouteObject } from "@aptre/remix-react-router";
+import { matchRoutes } from "@aptre/remix-react-router";
 
 function pickPaths(
   routes: RouteObject[],
   pathname: string,
-  basename?: string
+  basename?: string,
 ): string[] | null {
   let matches = matchRoutes(routes, pathname, basename);
   return matches && matches.map((match) => match.route.path || "");

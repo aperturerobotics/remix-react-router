@@ -9,7 +9,7 @@ import {
   createMemoryRouter,
   createRoutesFromElements,
   RouterProvider,
-} from "react-router-dom";
+} from "@aptre/remix-react-router-dom";
 import {
   act,
   fireEvent,

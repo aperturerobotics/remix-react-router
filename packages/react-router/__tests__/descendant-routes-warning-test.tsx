@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as TestRenderer from "react-test-renderer";
-import { MemoryRouter, Outlet, Routes, Route } from "react-router";
+import { MemoryRouter, Outlet, Routes, Route } from "@aptre/remix-react-router";
 
 describe("Descendant <Routes>", () => {
   let consoleWarn: jest.SpyInstance<void, any>;
@@ -47,7 +47,7 @@ describe("Descendant <Routes>", () => {
                 <Route path="react" element={<ReactCourses />} />
               </Route>
             </Routes>
-          </MemoryRouter>
+          </MemoryRouter>,
         );
       });
 
@@ -83,7 +83,7 @@ Please change the parent <Route path="react"> to <Route path="react/*">.`);
             <Routes>
               <Route path="/" element={<ReactCourses />} />
             </Routes>
-          </MemoryRouter>
+          </MemoryRouter>,
         );
       });
 
@@ -130,7 +130,7 @@ Please change the parent <Route path="/"> to <Route path="*">.`);
                 <Route path="react/*" element={<ReactCourses />} />
               </Route>
             </Routes>
-          </MemoryRouter>
+          </MemoryRouter>,
         );
       });
 

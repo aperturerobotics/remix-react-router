@@ -235,7 +235,7 @@ function mapRouteProperties(route: RouteObject) {
         warning(
           false,
           "You should not include both `Component` and `element` on your route - " +
-            "`Component` will be used."
+            "`Component` will be used.",
         );
       }
     }
@@ -251,7 +251,7 @@ function mapRouteProperties(route: RouteObject) {
         warning(
           false,
           "You should not include both `HydrateFallback` and `hydrateFallbackElement` on your route - " +
-            "`HydrateFallback` will be used."
+            "`HydrateFallback` will be used.",
         );
       }
     }
@@ -267,7 +267,7 @@ function mapRouteProperties(route: RouteObject) {
         warning(
           false,
           "You should not include both `ErrorBoundary` and `errorElement` on your route - " +
-            "`ErrorBoundary` will be used."
+            "`ErrorBoundary` will be used.",
         );
       }
     }
@@ -288,7 +288,7 @@ export function createMemoryRouter(
     hydrationData?: HydrationState;
     initialEntries?: InitialEntry[];
     initialIndex?: number;
-  }
+  },
 ): RemixRouter {
   return createRouter({
     basename: opts?.basename,

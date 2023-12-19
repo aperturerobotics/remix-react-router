@@ -1,7 +1,7 @@
 import * as React from "react";
 import * as TestRenderer from "react-test-renderer";
-import type { PathMatch } from "react-router";
-import { MemoryRouter, Routes, Route, useMatch } from "react-router";
+import type { PathMatch } from "@aptre/remix-react-router";
+import { MemoryRouter, Routes, Route, useMatch } from "@aptre/remix-react-router";
 
 function ShowMatch({ pattern }: { pattern: string }) {
   return <pre>{JSON.stringify(useMatch(pattern), null, 2)}</pre>;
@@ -19,7 +19,7 @@ describe("useMatch", () => {
                 <Route path="/home" element={<h1>Home</h1>} />
               </Route>
             </Routes>
-          </MemoryRouter>
+          </MemoryRouter>,
         );
       });
 
@@ -51,7 +51,7 @@ describe("useMatch", () => {
                 <Route path="/home" element={<h1>Home</h1>} />
               </Route>
             </Routes>
-          </MemoryRouter>
+          </MemoryRouter>,
         );
       });
 
@@ -83,7 +83,7 @@ describe("useMatch", () => {
                 <Route path="/home" element={<h1>Home</h1>} />
               </Route>
             </Routes>
-          </MemoryRouter>
+          </MemoryRouter>,
         );
       });
 
@@ -118,7 +118,7 @@ describe("useMatch", () => {
             <Routes>
               <Route path={path} element={<HomePage />} />
             </Routes>
-          </MemoryRouter>
+          </MemoryRouter>,
         );
       });
 
@@ -128,7 +128,7 @@ describe("useMatch", () => {
             <Routes>
               <Route path={path} element={<HomePage />} />
             </Routes>
-          </MemoryRouter>
+          </MemoryRouter>,
         );
       });
 

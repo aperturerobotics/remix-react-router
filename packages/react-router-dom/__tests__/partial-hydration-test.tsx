@@ -1,8 +1,8 @@
 import "@testing-library/jest-dom";
 import { render, screen, waitFor } from "@testing-library/react";
 import * as React from "react";
-import type { LoaderFunction } from "react-router";
-import { RouterProvider as ReactRouter_RouterPRovider } from "react-router";
+import type { LoaderFunction } from "@aptre/remix-react-router";
+import { RouterProvider as ReactRouter_RouterPRovider } from "@aptre/remix-react-router";
 import {
   Outlet,
   RouterProvider as ReactRouterDom_RouterProvider,
@@ -11,7 +11,7 @@ import {
   createMemoryRouter,
   useLoaderData,
   useRouteError,
-} from "react-router-dom";
+} from "@aptre/remix-react-router-dom";
 
 import getHtml from "../../react-router/__tests__/utils/getHtml";
 import { createDeferred } from "../../router/__tests__/utils/utils";

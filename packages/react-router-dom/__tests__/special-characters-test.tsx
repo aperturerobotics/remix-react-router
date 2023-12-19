@@ -9,7 +9,7 @@ import {
   waitFor,
   screen,
 } from "@testing-library/react";
-import type { Location, Params } from "react-router-dom";
+import type { Location, Params } from "@aptre/remix-react-router-dom";
 import {
   BrowserRouter,
   HashRouter,
@@ -25,7 +25,7 @@ import {
   useLocation,
   useNavigate,
   useParams,
-} from "react-router-dom";
+} from "@aptre/remix-react-router-dom";
 
 /**
  * Here's all the special characters we want to test against.  This list was

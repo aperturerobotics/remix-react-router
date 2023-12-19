@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as TestRenderer from "react-test-renderer";
-import { MemoryRouter, Routes, Route, useParams } from "react-router";
+import { MemoryRouter, Routes, Route, useParams } from "@aptre/remix-react-router";
 
 describe("Decoding params", () => {
   it("works", () => {
@@ -22,7 +22,7 @@ describe("Decoding params", () => {
               }
             />
           </Routes>
-        </MemoryRouter>
+        </MemoryRouter>,
       );
     });
 

@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as TestRenderer from "react-test-renderer";
-import { MemoryRouter, Routes, Route } from "react-router";
+import { MemoryRouter, Routes, Route } from "@aptre/remix-react-router";
 
 describe("A <Route>", () => {
   it("renders its `element` prop", () => {
@@ -11,7 +11,7 @@ describe("A <Route>", () => {
           <Routes>
             <Route path="home" element={<h1>Home</h1>} />
           </Routes>
-        </MemoryRouter>
+        </MemoryRouter>,
       );
     });
 
@@ -30,7 +30,7 @@ describe("A <Route>", () => {
           <Routes>
             <Route path="home" Component={() => <h1>Home</h1>} />
           </Routes>
-        </MemoryRouter>
+        </MemoryRouter>,
       );
     });
 
@@ -51,7 +51,7 @@ describe("A <Route>", () => {
               <Route path="home" element={<h1>Home</h1>} />
             </Route>
           </Routes>
-        </MemoryRouter>
+        </MemoryRouter>,
       );
     });
 

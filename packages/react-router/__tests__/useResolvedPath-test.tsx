@@ -1,13 +1,13 @@
 import * as React from "react";
 import * as TestRenderer from "react-test-renderer";
-import type { Path } from "react-router";
+import type { Path } from "@aptre/remix-react-router";
 import {
   MemoryRouter,
   Routes,
   Route,
   useResolvedPath,
   useLocation,
-} from "react-router";
+} from "@aptre/remix-react-router";
 import { prettyDOM, render } from "@testing-library/react";
 
 function ShowResolvedPath({ path }: { path: string | Path }) {
@@ -26,7 +26,7 @@ describe("useResolvedPath", () => {
               element={<ShowResolvedPath path="/home?user=mj#welcome" />}
             />
           </Routes>
-        </MemoryRouter>
+        </MemoryRouter>,
       );
     });
 
@@ -56,7 +56,7 @@ describe("useResolvedPath", () => {
               }
             />
           </Routes>
-        </MemoryRouter>
+        </MemoryRouter>,
       );
     });
 
@@ -79,7 +79,7 @@ describe("useResolvedPath", () => {
                 element={<ShowResolvedPath path="/home#welcome?user=mj" />}
               />
             </Routes>
-          </MemoryRouter>
+          </MemoryRouter>,
         );
       });
 
@@ -105,7 +105,7 @@ describe("useResolvedPath", () => {
                 <Route path="*" element={<ShowResolvedPath path="." />} />
               </Route>
             </Routes>
-          </MemoryRouter>
+          </MemoryRouter>,
         );
       });
 
@@ -126,7 +126,7 @@ describe("useResolvedPath", () => {
                 <Route path="*" element={<ShowResolvedPath path="." />} />
               </Route>
             </Routes>
-          </MemoryRouter>
+          </MemoryRouter>,
         );
       });
 
@@ -152,7 +152,7 @@ describe("useResolvedPath", () => {
                 }
               />
             </Routes>
-          </MemoryRouter>
+          </MemoryRouter>,
         );
       });
 
@@ -178,7 +178,7 @@ describe("useResolvedPath", () => {
                 }
               />
             </Routes>
-          </MemoryRouter>
+          </MemoryRouter>,
         );
       });
 
@@ -201,7 +201,7 @@ describe("useResolvedPath", () => {
                 <Route path=":name" element={<ShowResolvedPath path="." />} />
               </Route>
             </Routes>
-          </MemoryRouter>
+          </MemoryRouter>,
         );
       });
 
@@ -222,7 +222,7 @@ describe("useResolvedPath", () => {
                 <Route path=":name" element={<ShowResolvedPath path=".." />} />
               </Route>
             </Routes>
-          </MemoryRouter>
+          </MemoryRouter>,
         );
       });
 

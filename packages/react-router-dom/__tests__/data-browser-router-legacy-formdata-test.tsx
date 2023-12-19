@@ -13,7 +13,7 @@ import {
   createBrowserRouter,
   createHashRouter,
   createRoutesFromElements,
-} from "react-router-dom";
+} from "@aptre/remix-react-router-dom";
 
 testDomRouter("<DataBrowserRouter>", createBrowserRouter, (url) =>
   getWindowImpl(url, false)

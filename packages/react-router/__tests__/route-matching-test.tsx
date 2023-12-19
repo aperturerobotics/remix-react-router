@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as TestRenderer from "react-test-renderer";
-import type { RouteObject } from "react-router";
+import type { RouteObject } from "@aptre/remix-react-router";
 import {
   MemoryRouter,
   Outlet,
@@ -8,7 +8,7 @@ import {
   Route,
   useParams,
   useRoutes,
-} from "react-router";
+} from "@aptre/remix-react-router";
 
 describe("route matching", () => {
   function describeRouteMatching(routes: React.ReactNode) {
@@ -29,7 +29,7 @@ describe("route matching", () => {
         let renderer: TestRenderer.ReactTestRenderer;
         TestRenderer.act(() => {
           renderer = TestRenderer.create(
-            <MemoryRouter initialEntries={[path]} children={routes} />
+            <MemoryRouter initialEntries={[path]} children={routes} />,
           );
         });
 

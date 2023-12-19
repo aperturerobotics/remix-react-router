@@ -5,7 +5,7 @@ import {
   useNavigate,
   useSubmit,
   useFetcher,
-} from "react-router-dom";
+} from "@aptre/remix-react-router-dom";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { JSDOM } from "jsdom";
 

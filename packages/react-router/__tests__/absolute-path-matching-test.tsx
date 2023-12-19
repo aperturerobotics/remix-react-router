@@ -1,5 +1,5 @@
-import type { RouteObject } from "react-router";
-import { matchRoutes } from "react-router";
+import type { RouteObject } from "@aptre/remix-react-router";
+import { matchRoutes } from "@aptre/remix-react-router";
 
 function pickPaths(routes: RouteObject[], pathname: string): string[] | null {
   let matches = matchRoutes(routes, pathname);
@@ -54,7 +54,7 @@ describe("absolute path matching", () => {
             ],
           },
         ],
-        "/users/123"
+        "/users/123",
       );
     }).toThrow("absolute child route path must start");
   });

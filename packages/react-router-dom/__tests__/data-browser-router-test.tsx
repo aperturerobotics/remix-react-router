@@ -9,7 +9,7 @@ import {
 } from "@testing-library/react";
 import { JSDOM } from "jsdom";
 import * as React from "react";
-import type { RouteObject } from "react-router-dom";
+import type { RouteObject } from "@aptre/remix-react-router-dom";
 import {
   UNSAFE_DataRouterStateContext as DataRouterStateContext,
   Form,
@@ -34,7 +34,7 @@ import {
   useRouteError,
   useSearchParams,
   useSubmit,
-} from "react-router-dom";
+} from "@aptre/remix-react-router-dom";
 
 import getHtml from "../../react-router/__tests__/utils/getHtml";
 import { createDeferred } from "../../router/__tests__/utils/utils";
