@@ -20,6 +20,14 @@
     "@jridgewell/gen-mapping" "^0.3.0"
     "@jridgewell/trace-mapping" "^0.3.9"
 
+"@aptre/remix-react-router@1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@aptre/remix-react-router/-/remix-react-router-1.1.0.tgz#9204d5c97c08c0b8f07f0d9a75145446eaab27d6"
+  integrity sha512-MaAdn/eB2Mry05tWMbjnecqGF7uV4iLgy3fqGU3upXNrK7ONG8VDgavOHVwZu9V9F03K3eZj/A8gzNp6JnMTXw==
+  dependencies:
+    "@remix-run/router" "1.14.0"
+    react-router-dom "^6.21.0"
+
 "@babel/code-frame@^7.0.0", "@babel/code-frame@^7.10.4", "@babel/code-frame@^7.12.13", "@babel/code-frame@^7.22.5":
   version "7.22.5"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.22.5.tgz#234d98e1551960604f1246e6475891a570ad5658"
