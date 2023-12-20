@@ -7,7 +7,7 @@
     ]
   },
   "scripts": {
-    "build": "cd ./packages/react-router && npm run build",
+    "build": "cd ./packages/react-router && npm run build && cd ../react-router-dom && npm run build",
     "clean": "git clean -fdX .",
     "format": "prettier --ignore-path .eslintignore --write .",
     "format:check": "prettier --ignore-path .eslintignore --check .",
