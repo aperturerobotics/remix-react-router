@@ -1,6 +1,6 @@
 {
   "name": "@aptre/remix-react-router-dom",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "Declarative routing for React web applications",
   "keywords": [
     "react",
@@ -22,7 +22,7 @@
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "dependencies": {
-    "@aptre/remix-react-router": "1.2.1",
+    "@aptre/remix-react-router": "1.2.2",
     "@remix-run/router": "1.14.0"
   },
   "devDependencies": {
@@ -43,11 +43,12 @@
     "server.mjs"
   ],
   "scripts": {
-    "build": "npm run build:lib && npm run build:types",
+    "clean": "rimraf ./dist",
+    "build": "npm run clean && npm run build:types && npm run build:lib",
     "build:lib": "npm run build:lib:client && npm run build:lib:server",
-    "build:lib:client": "rimraf ./dist && npm run build:esbuild -- --platform=browser --outfile=./dist/index.mjs ./index.tsx",
-    "build:lib:server": "rimraf ./dist && npm run build:esbuild -- --platform=node --outfile=./dist/server.mjs ./server.tsx",
+    "build:lib:client": "npm run build:esbuild -- --platform=browser --outfile=./dist/index.mjs ./index.tsx",
+    "build:lib:server": "npm run build:esbuild -- --platform=node --outfile=./dist/server.mjs ./server.tsx",
     "build:esbuild": "esbuild --bundle --external:react --external:react-dom --format=esm --define:__DEV__=false --tree-shaking=true --target=es2022",
-    "build:types": "tsc --emitDeclarationOnly --declaration --outDir dist/"
+    "build:types": "tsc --project tsconfig.json --noEmit false --emitDeclarationOnly --declaration --outDir ./dist/"
   }
 }

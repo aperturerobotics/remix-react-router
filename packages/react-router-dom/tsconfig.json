@@ -1,21 +1,26 @@
 {
-  "files": ["index.tsx", "server.tsx"],
-  "exclude": ["dist/**/*"],
   "compilerOptions": {
-    "lib": ["ES2020", "DOM", "DOM.Iterable"],
-    "target": "ES2020",
-    "module": "ES2020",
+    "module": "esnext",
+    "target": "esnext",
     "moduleResolution": "node",
-
-    "strict": true,
     "jsx": "react",
-
+    "baseUrl": "./",
+    "outDir": "./dist/",
+    "allowSyntheticDefaultImports": true,
     "declaration": true,
-    "emitDeclarationOnly": true,
-
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "importsNotUsedAsValues": "remove",
+    "noEmit": true,
+    "resolveJsonModule": true,
     "skipLibCheck": true,
-
-    "outDir": ".",
-    "rootDir": "."
+    "strict": true,
+    "lib": ["dom", "dom.iterable"]
+  },
+  "exclude": ["node_modules", "vendor", "dist", "__tests__"],
+  "include": ["index.tsx", "server.tsx"],
+  "ts-node": {
+    "esm": true,
+    "experimentalSpecifierResolution": true
   }
 }
