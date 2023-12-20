@@ -1,6 +1,6 @@
 {
   "name": "@aptre/remix-react-router",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Declarative routing for React",
   "keywords": [
     "react",
@@ -22,8 +22,7 @@
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "dependencies": {
-    "@remix-run/router": "1.14.0",
-    "react-router-dom": "^6.21.0"
+    "@remix-run/router": "1.14.0"
   },
   "devDependencies": {
     "esbuild": "^0.19.10",

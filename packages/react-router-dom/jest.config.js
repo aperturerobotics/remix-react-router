@@ -18,7 +18,7 @@ module.exports = {
     "^@web3-storage/multipart-parser$": require.resolve(
       "@web3-storage/multipart-parser"
     ),
-    "^react-router$": "<rootDir>/../react-router/index.ts",
-    "^react-router-dom$": "<rootDir>/index.tsx",
+    "^@aptre/remix-react-router$": "<rootDir>/../react-router/index.ts",
+    "^@aptre/remix-react-router-dom$": "<rootDir>/index.tsx",
   },
 };

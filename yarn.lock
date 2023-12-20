@@ -20,14 +20,6 @@
     "@jridgewell/gen-mapping" "^0.3.0"
     "@jridgewell/trace-mapping" "^0.3.9"
 
-"@aptre/remix-react-router@1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@aptre/remix-react-router/-/remix-react-router-1.1.0.tgz#9204d5c97c08c0b8f07f0d9a75145446eaab27d6"
-  integrity sha512-MaAdn/eB2Mry05tWMbjnecqGF7uV4iLgy3fqGU3upXNrK7ONG8VDgavOHVwZu9V9F03K3eZj/A8gzNp6JnMTXw==
-  dependencies:
-    "@remix-run/router" "1.14.0"
-    react-router-dom "^6.21.0"
-
 "@babel/code-frame@^7.0.0", "@babel/code-frame@^7.10.4", "@babel/code-frame@^7.12.13", "@babel/code-frame@^7.22.5":
   version "7.22.5"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.22.5.tgz#234d98e1551960604f1246e6475891a570ad5658"
@@ -6387,21 +6379,6 @@ react-is@^17.0.1:
   version "17.0.2"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-17.0.2.tgz#e691d4a8e9c789365655539ab372762b0efb54f0"
   integrity sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==
-
-react-router-dom@^6.21.0:
-  version "6.21.0"
-  resolved "https://registry.yarnpkg.com/react-router-dom/-/react-router-dom-6.21.0.tgz#aa4c6bc046a8e8723095bc09b3c0ab2254532712"
-  integrity sha512-1dUdVj3cwc1npzJaf23gulB562ESNvxf7E4x8upNJycqyUm5BRRZ6dd3LrlzhtLaMrwOCO8R0zoiYxdaJx4LlQ==
-  dependencies:
-    "@remix-run/router" "1.14.0"
-    react-router "6.21.0"
-
-react-router@6.21.0:
-  version "6.21.0"
-  resolved "https://registry.yarnpkg.com/react-router/-/react-router-6.21.0.tgz#6fe3e59877aca3dccceec1801d26991ddf42d12b"
-  integrity sha512-hGZ0HXbwz3zw52pLZV3j3+ec+m/PQ9cTpBvqjFQmy2XVUWGn5MD+31oXHb6dVTxYzmAeaiUBYjkoNz66n3RGCg==
-  dependencies:
-    "@remix-run/router" "1.14.0"
 
 react-shallow-renderer@^16.15.0:
   version "16.15.0"
