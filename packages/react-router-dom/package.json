@@ -1,6 +1,6 @@
 {
   "name": "@aptre/remix-react-router-dom",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Declarative routing for React web applications",
   "keywords": [
     "react",
@@ -22,7 +22,7 @@
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "dependencies": {
-    "@aptre/remix-react-router": "1.2.2",
+    "@aptre/remix-react-router": "1.2.3",
     "@remix-run/router": "1.14.0"
   },
   "devDependencies": {
@@ -48,7 +48,7 @@
     "build:lib": "npm run build:lib:client && npm run build:lib:server",
     "build:lib:client": "npm run build:esbuild -- --platform=browser --outfile=./dist/index.mjs ./index.tsx",
     "build:lib:server": "npm run build:esbuild -- --platform=node --outfile=./dist/server.mjs ./server.tsx",
-    "build:esbuild": "esbuild --bundle --external:react --external:react-dom --format=esm --define:__DEV__=false --tree-shaking=true --target=es2022",
+    "build:esbuild": "esbuild --bundle --external:react --external:react-dom --external:@aptre/remix-react-router --external:remix-run/router --format=esm --define:__DEV__=false --tree-shaking=true --target=es2022",
     "build:types": "tsc --project tsconfig.json --noEmit false --emitDeclarationOnly --declaration --outDir ./dist/"
   }
 }
